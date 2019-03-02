@@ -1,0 +1,27 @@
+body {
+    background-image: url("../../assets/images/railroadTracks.jpeg")
+}
+
+.jumbotron{
+    background-color: #F0E7D6;
+}
+
+h1{
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 50pt;
+}
+
+h3 {
+    font-family: 'PT Mono', monospace;
+}
+
+.card-header {
+    background-color: #DA4823;
+}
+#addTrain {
+    background-color: #DA4823;
+}
+
+.card {
+    background-color: #F0E7D6;
+}
