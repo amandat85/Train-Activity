@@ -1,5 +1,5 @@
 # Train-Activity
-Train Scheduling activity using Firebase.
+Train Scheduling activity using Firebase and Moment.js.
 
 ## Site
 https://amandat85.github.io/Train-Activity/
