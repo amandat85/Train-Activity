@@ -9,17 +9,19 @@
 }
 
 body {
-    background-image: url("../../assets/images/railroadTracks.jpeg")
+    background-image: url("../../assets/images/railroadTracks.jpeg");
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 14pt;
 }
 
 .jumbotron{
     background-color: #F0E7D6;
-    position: relative;
-    height: 90%;
+    padding-bottom: 0;
 }
 
 h1{
     font-family: 'Fira Sans', sans-serif;
+    font-size: 40pt;
 }
 
 h3 {
@@ -28,14 +30,18 @@ h3 {
 
 #currentTime {
    font-family: "Digital-7-mono";
-   font-size: 100px
+   font-size: 50px;
 }
 
 .card-header {
     background-color: #DA4823;
+    color: #F0E7D6;
+    font-size: 16pt;
+    
 }
-#addTrain {
+#addTrain, .arrival {
     background-color: #DA4823;
+    color: #F0E7D6;
 }
 
 .card {
@@ -45,4 +51,9 @@ h3 {
 #currentTime {
     position:aboslute;
     bottom: 0;
+}
+#footerColor {
+    background-color: #DA4823;
+    color: #F0E7D6;
+
 }

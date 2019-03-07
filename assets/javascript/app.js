@@ -25,8 +25,20 @@ $(document).ready(function () {
   document.querySelector("#addTrain").addEventListener("click", function (event) {
     event.preventDefault();
 
-    //EMPTY FIELDS ON SUBMIT
-    if ($("#inputTrain").val().trim() === "" || $("#destination").val().trim() === "" || $("#firstTrain").val().trim() === "" || $("#frequency").val().trim() === "") {
+    //VALIDATION FORM===========================================================
+    if (document.querySelector("#inputTrain").value.trim() === "") {
+      alert("please fille in train name");
+      return;
+    }
+    if (document.querySelector("#destination").value.trim() === "") {
+      alert("Fill in destination");
+      return;
+    }
+    if (document.querySelector("#firstTrain").value.trim() === "") {
+      return;
+    }
+    if (document.querySelector("#frequency").value.trim() === "") {
+      return;
     }
     else {
       //VARIABLES====================================================
@@ -51,14 +63,15 @@ $(document).ready(function () {
     document.getElementById("frequency").value = "";
   });
 
-  database.ref("/newTrain").on("child_added", function(childSnapshot){
-   
+  database.ref("/newTrain").on("child_added", function (childSnapshot) {
+
     var trainAdded = childSnapshot.val().train;
     var destinationLocation = childSnapshot.val().destination;
     var startTimeConverted = moment(childSnapshot.val().startTime, "HH:mm").subtract(1, "years");
     var frequencyMin = childSnapshot.val().frequency;
+    var key = childSnapshot.key;
 
-  //CALCULATE NEXT TRAIN TIME======================================
+    //CALCULATE NEXT TRAIN TIME======================================
     var timeMin = moment().diff(moment(startTimeConverted), "minutes");
 
     var timeRemaining = timeMin % frequencyMin;
@@ -67,52 +80,53 @@ $(document).ready(function () {
 
     var nextTrain = moment().add(minToArrival, "minutes");
 
-  //ADD NEW TRAIN TO TABLE========================================
-  var newRow = document.createElement("tbody");
-  newRow.setAttribute("class", "newInfo");
-  
-  var columnTrainName = document.createElement("td");
-  columnTrainName.innerHTML = trainAdded;
-  newRow.appendChild(columnTrainName);
+    //ADD NEW TRAIN TO TABLE========================================
+    var newRow = document.createElement("tbody");
+    newRow.setAttribute("class", "newInfo");
 
-  var columnDestination = document.createElement("td");
-  columnDestination.innerHTML = destinationLocation;
- newRow.appendChild(columnDestination);
+    var columnTrainName = document.createElement("td");
+    columnTrainName.setAttribute("class", "text-center");
+    columnTrainName.innerHTML = trainAdded;
+    newRow.appendChild(columnTrainName);
 
-  var columnFrequency = document.createElement("td");
-  columnFrequency.innerHTML = frequencyMin;
-  newRow.appendChild(columnFrequency);
+    var columnDestination = document.createElement("td");
+    columnDestination.setAttribute("class", "text-center");
+    columnDestination.innerHTML = destinationLocation;
+    newRow.appendChild(columnDestination);
 
-  var columnNextTrain = document.createElement("td");
-  columnNextTrain.innerHTML = moment(nextTrain).format("LT");
-  newRow.appendChild(columnNextTrain);
+    var columnFrequency = document.createElement("td");
+    columnFrequency.setAttribute("class", "text-center");
+    columnFrequency.innerHTML = frequencyMin;
+    newRow.appendChild(columnFrequency);
 
-  var columnArrival = document.createElement("td");
-  columnArrival.innerHTML = minToArrival;
-  newRow.appendChild(columnArrival);
+    var columnNextTrain = document.createElement("td");
+    columnNextTrain.setAttribute("class", "text-center");
+    columnNextTrain.innerHTML = moment(nextTrain).format("LT");
+    newRow.appendChild(columnNextTrain);
 
-  document.querySelector("#trains").appendChild(newRow);
+    var columnArrival = document.createElement("td");
+    columnArrival.setAttribute("class", "text-center");
+    columnArrival.innerHTML = minToArrival;
+    newRow.appendChild(columnArrival);
 
-});
+    var columnRemove = document.createElement("td");
+    columnRemove.setAttribute("class", "text-center");
+    columnRemove.innerHTML = ("<button class='arrival btn btn-xs' data-key='" + key + "'>X</button>");
+    newRow.appendChild(columnRemove);
 
+    document.querySelector("#trains").appendChild(newRow);
+  });
 
-// setInterval(function(){
-//   var counter = 10
-//   counter--;
+  $(document).on("click", ".arrival", function (event) {
+    console.log(event);
+    var keyRef = this.dataset.key;
+    database.ref("/newTrain").child(keyRef).remove();
+    window.location.reload();
 
-// }, 10000);
-// function reloadRow() {
-//   setInterval(function () {
-//     document.querySelector(".newInfo")
-//   }, 1000);
-// }
-// reloadRow();
-  
-  //Fix form validation
-  //Add user ability to remove row
-  //Reset page every 60 secs
-  //error handler
-  //add local storage
+  });
 
+  setInterval(function () {
+    window.location.reload();
+  }, 60000);
 
 });
