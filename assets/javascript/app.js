@@ -27,17 +27,19 @@ $(document).ready(function () {
 
     //VALIDATION FORM===========================================================
     if (document.querySelector("#inputTrain").value.trim() === "") {
-      alert("please fille in train name");
+      window.alert("Please fill in the name of the train.");
       return;
     }
     if (document.querySelector("#destination").value.trim() === "") {
-      alert("Fill in destination");
+      window.alert("Please fill in a destination you would like to disppear to.");
       return;
     }
     if (document.querySelector("#firstTrain").value.trim() === "") {
+      window.alert("Please select a time, in military time, at which you wish to disappear.");
       return;
     }
     if (document.querySelector("#frequency").value.trim() === "") {
+      window.alert("Please enter the frequency of your train.");
       return;
     }
     else {
@@ -116,17 +118,15 @@ $(document).ready(function () {
 
     document.querySelector("#trains").appendChild(newRow);
   });
-
+  
   $(document).on("click", ".arrival", function (event) {
     console.log(event);
     var keyRef = this.dataset.key;
     database.ref("/newTrain").child(keyRef).remove();
     window.location.reload();
-
   });
 
   setInterval(function () {
     window.location.reload();
   }, 60000);
-
 });
