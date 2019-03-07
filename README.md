@@ -16,7 +16,7 @@ https://amandat85.github.io/Train-Activity/
 * Moment.js
 
 ## How it works
-* Enter information into the "Add Trains form.
+* Enter information into the "Add Trains" form.
 * When you click the add trains button, the new train information will display in the train table.
 * Train times will update every minute
 * Remove a train by clicking on the "X" at the end of the row.
