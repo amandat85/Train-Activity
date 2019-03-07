@@ -30,6 +30,7 @@
 <body>
     <div class="container">
         <div class="jumbotron">
+            <button type="button" class="btn" id="amelia" onclick="window.location.href = 'https://ameliapodcast.com/';">Amelia Project</button>
             <h1 class="text-center" id="heading">Amelia Express</h1>
             <h3 class="text-center">Making people disappear since 2017</h3>
             <p class="text-right y-auto" id="currentTime"></p>
@@ -66,7 +67,7 @@
                                 <input type="number" class="form-control" id="frequency" placeholder="Frequency (min)"
                                     value="">
                             </div>
-                            <button type="submit" class="btn" id="addTrain">Add Train</button>
+                            <button type="submit" class="btn" id="addTrain" data-toggle="modal" data-target="alert">Add Train</button>
                         </form>
                     </div>
                 </div>
@@ -92,7 +93,72 @@
                 </div>
             </div>
         </div>
+    </div>  
+  <!-- Modal -->
+  <!--Modal - Train Name-->
+  <div class="modal fade" id="alertTrain" tabindex="-1" role="dialog" aria-labelledby="trainLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alertLabel">Train Name Error</h5>
+        </div>
+        <div class="modal-body">
+        <p>Please enter a train name.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="closeModal" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
+  </div>
+   <!--Modal - Destination-->
+   <div class="modal fade" id="alertDestination" tabindex="-1" role="dialog" aria-labelledby="destinationLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alertLabel">Destination Error</h5>
+        </div>
+        <div class="modal-body">
+        <p>Please fill in a destination you would like to disppear to.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="closeModalD" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!--Modal - Military Time-->
+   <div class="modal fade" id="alertMilitaryTime" tabindex="-1" role="dialog" aria-labelledby="militaryTimeLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alertLabel">Military Time Error</h5>
+        </div>
+        <div class="modal-body">
+        <p>Please select a time, in military time, at which you wish to disappear.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="closeModalMT" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!--Modal -Frequency-->
+   <div class="modal fade" id="alertFrequency" tabindex="-1" role="dialog" aria-labelledby="frquencyLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alertLabel">Train Frequency Error</h5>
+        </div>
+        <div class="modal-body">
+        <p>Please enter the frequency of your train.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="closeModalF" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
     <!--Footer-->
     <div class="footer d-flex justify-content-center mt-5 pt-3" id="footerColor">
         <p>Copyright &copy; 2019 - Amanda Tomé</p>

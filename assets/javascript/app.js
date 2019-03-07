@@ -27,21 +27,36 @@ $(document).ready(function () {
 
     //VALIDATION FORM===========================================================
     if (document.querySelector("#inputTrain").value.trim() === "") {
-      window.alert("Please fill in the name of the train.");
-      return;
+      $("#alertTrain").addClass("show").css("display", "block");
+      $("#closeModal").on("click", function () {
+        $("#alertTrain").removeClass("show").css("display", "none");
+      });
     }
-    if (document.querySelector("#destination").value.trim() === "") {
-      window.alert("Please fill in a destination you would like to disppear to.");
-      return;
+
+    else if (document.querySelector("#destination").value.trim() === "") {
+      $("#alertDestination").addClass("show").css("display", "block");
+      $("#closeModalD").on("click", function () {
+        $("#alertDestination").removeClass("show").css("display", "none");
+        return;
+      });
     }
-    if (document.querySelector("#firstTrain").value.trim() === "") {
-      window.alert("Please select a time, in military time, at which you wish to disappear.");
-      return;
+
+    else if (document.querySelector("#firstTrain").value.trim() === "") {
+      $("#alertMilitaryTime").addClass("show").css("display", "block");
+      $("#closeModalMT").on("click", function () {
+        $("#alertMilitaryTime").removeClass("show").css("display", "none");
+        return;
+      });
+
     }
-    if (document.querySelector("#frequency").value.trim() === "") {
-      window.alert("Please enter the frequency of your train.");
-      return;
+    else if (document.querySelector("#frequency").value.trim() === "") {
+      $("#alertFrequency").addClass("show").css("display", "block");
+      $("#closeModalF").on("click", function () {
+        $("#alertFrequency").removeClass("show").css("display", "none");
+        return;
+      });
     }
+
     else {
       //VARIABLES====================================================
       var trainAdded = document.querySelector("#inputTrain").value.trim();
@@ -118,7 +133,7 @@ $(document).ready(function () {
 
     document.querySelector("#trains").appendChild(newRow);
   });
-  
+
   $(document).on("click", ".arrival", function (event) {
     console.log(event);
     var keyRef = this.dataset.key;

@@ -17,6 +17,7 @@ body {
 .jumbotron{
     background-color: #F0E7D6;
     padding-bottom: 0;
+    padding-top: 10px;
 }
 
 h1{
@@ -33,18 +34,18 @@ h3 {
    font-size: 50px;
 }
 
-.card-header {
+.card-header, .modal-header {
     background-color: #DA4823;
     color: #F0E7D6;
     font-size: 16pt;
-    
 }
-#addTrain, .arrival {
+
+#addTrain, .arrival, #closeModal, #closeModalD, #closeModalF, #closeModalMT, #amelia {
     background-color: #DA4823;
     color: #F0E7D6;
 }
 
-.card {
+.card, .modal-content {
     background-color: #F0E7D6;
 }
 
@@ -52,8 +53,8 @@ h3 {
     position:aboslute;
     bottom: 0;
 }
+
 #footerColor {
     background-color: #DA4823;
     color: #F0E7D6;
-
 }
