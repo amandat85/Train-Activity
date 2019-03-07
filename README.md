@@ -1,5 +1,5 @@
 # Train-Activity
-Train Scheduling activity usin Firebase.
+Train Scheduling activity using Firebase.
 
 ## Site
 https://amandat85.github.io/Train-Activity/
