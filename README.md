@@ -5,15 +5,15 @@ Train Scheduling activity using Firebase and Moment.js.
 https://amandat85.github.io/Train-Activity/
 
 ## Languages and Tools Used
-* HTML
-* Bootstrap
+* HTML 5
+* CSS 3
+* Bootstrap 4
 * Javascript
 * jQuery
-* CSS
-* Custom Fonts
-* Google Fonts
 * Firebase
 * Moment.js
+* Custom Fonts
+* Google Fonts
 
 ## How it works
 * Enter information into the "Add Trains" form.
