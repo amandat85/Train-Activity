@@ -2,7 +2,7 @@
 Train Scheduling activity using Firebase and Moment.js.
 
 ## Site
-https://amandat85.github.io/Train-Activity/
+https://amandatome.github.io/Train-Activity/
 
 ## Languages and Tools Used
 * HTML 5
